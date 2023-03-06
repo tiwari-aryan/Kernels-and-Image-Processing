@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import sys
 
 
 IMG_SIZE = 256
@@ -31,15 +32,17 @@ def apply_kernel(image, kernel):
 
 
 if __name__ == "__main__":
-    img_path = "sample_image.jpg"
+    img_path = sys.argv[1]
+    resulting_img_path = "resulting_image.jpg"
 
+    print(img_path)
     img = cv2.imread(img_path)
     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     after_img = apply_kernel(
         img,
-        OUTLINE,
+        BLUR,
     )
 
     cv2.imshow("Before", img)
@@ -47,3 +50,6 @@ if __name__ == "__main__":
 
     cv2.imshow("After", after_img)
     cv2.waitKey(0)
+
+    cv2.imwrite("example_image.jpg", img)
+    cv2.imwrite(resulting_img_path, after_img * 255)
