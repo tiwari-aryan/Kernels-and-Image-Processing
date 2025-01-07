@@ -53,6 +53,6 @@ This is true for all kernels in fact, and can be seen in the other examples as w
 
 ## How to Use The Program
 
-    python main.py sample_image.jpg
+    python main.py sample_image.jpg kernel_name
 
-You can replace `sample_image.jpg` with your desired file.
+You can replace `sample_image.jpg` with your desired file and `kernel_name` with the name of the filter you wish to apply to the image. The kernel name can be one of the following: `blur`, `outline`, `emboss`, or `sharpen`.
